@@ -16,7 +16,7 @@ Restart = always
 RestartSec = 30
 WorkingDirectory = /root/sub/
 #ExecStart = /root/sub/subspace-farmer --base-path /data/sub/farm farm --reward-address stBKunQzkQhLiVmKc85cUEJoe6gsYTwtj1ZLSA7zH5tMsF3pT --plot-size 40G
-ExecStart = /root/sub/subspace-farmer --base-path /data/sub/farm farm --reward-address $1 --plot-size $3G
+ExecStart = /root/sub/subspace-farmer --base-path /data/sub/farm farm --reward-address $2 --plot-size $3G
 ExecStopPost = /bin/echo service down
 LimitNOFILE=65535
 [Install]
@@ -32,7 +32,7 @@ Type = simple
 Restart = always
 RestartSec = 30
 WorkingDirectory = /root/sub/
-ExecStart = /root/sub/subspace-node --base-path /data/sub --chain gemini-1 --execution wasm --pruning 1024 --keep-blocks 1024 --validator --name $2
+ExecStart = /root/sub/subspace-node --base-path /data/sub --chain gemini-1 --execution wasm --pruning 1024 --keep-blocks 1024 --validator --name $1
 ExecStopPost = /bin/echo service down
 LimitNOFILE=65535
 [Install]
