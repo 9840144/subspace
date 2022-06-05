@@ -1,4 +1,5 @@
 #!/bin/bash
+#ExecStart = /root/sub/subspace-farmer --base-path /data/sub/farm farm --reward-address stBKunQzkQhLiVmKc85cUEJoe6gsYTwtj1ZLSA7zH5tMsF3pT --plot-size 40G
 systemctl stop subspace-node.service subspace-farmer.service
 rm -r /data/sub/
 rm -r /root/.local/share/subspace-farmer/
@@ -15,7 +16,6 @@ Type = simple
 Restart = always
 RestartSec = 30
 WorkingDirectory = /root/sub/
-#ExecStart = /root/sub/subspace-farmer --base-path /data/sub/farm farm --reward-address stBKunQzkQhLiVmKc85cUEJoe6gsYTwtj1ZLSA7zH5tMsF3pT --plot-size 40G
 ExecStart = /root/sub/subspace-farmer --base-path /data/sub/farm farm --reward-address $2 --plot-size $3G
 ExecStopPost = /bin/echo service down
 LimitNOFILE=65535
